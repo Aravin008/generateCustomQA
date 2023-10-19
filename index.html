@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate QR</title>
+</head>
+
+<body>
+  <header>
+    <h1>Generate QR Code</h1>
+  </header>
+  <main>
+    <section>
+      <input id="qr-text" style="width: 400px; padding: 5px;" />
+      <button onclick="submit();">Submit</button>
+
+      <div id="qr" style="display: none;">
+        <h3>Your QR Code</h3>
+        <img id="qr-img" src="" width="300px" height="300px" />
+        <button onclick="reset();" style="display: block;">Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function submit() {
+      const inputEle = document.getElementById('qr-text');
+      const qrEle = document.getElementById('qr');
+      const qrImgEle = document.getElementById('qr-img');
+
+      qrImgEle.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputEle.value;
+      qrEle.style.display = 'block';
+    }
+
+    function reset() {
+      const inputEle = document.getElementById('qr-test');
+      const qrEle = document.getElementById('qr');
+      const qrImgEle = document.getElementById('qr-img');
+
+      // inputEle.value = "";
+      // qrImgEle.src = "";
+      qrEle.style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
